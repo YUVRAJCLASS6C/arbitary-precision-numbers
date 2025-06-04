@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,-soname,libmalloc.so -o libmalloc.so CMakeFiles/malloc.dir/alloc/alloc.c.o 
