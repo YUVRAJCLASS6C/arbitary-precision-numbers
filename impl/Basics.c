@@ -3,6 +3,7 @@
 //
 #define SIZE__DIS
 #include "number.h"
+#include "FD.h"
 #define u64 size_t
 inline void print(number* num) {
     printf("%c", bit_to_char(num->flag));
@@ -11,10 +12,12 @@ inline void print(number* num) {
     }
 }
 inline void set(number* num,const char* buffer) {
+    char* filtered_buff = (char*)simple_alloc(strlen(buffer));
     for (u64 i = 0; i < strlen(buffer); i++){
-        if (buffer[i] == '\0' ) continue;
-        
+        if (buffer[i] == '\0') continue;
+        filtered_buff += buffer[i];
     }
+    simple_free(filtered_buff,strlen(buffer));
 }
 inline int bit_to_int(bit num){
     if (num == pos) return 1;
