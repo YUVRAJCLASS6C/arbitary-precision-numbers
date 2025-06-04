@@ -224,6 +224,9 @@ GOOD_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 GOOD_SOURCE_DIR:STATIC=/mnt/c/Users/Asus/Favorites/Large_numbers/C_10
 
+//Dependencies for the target
+lib_impl_LIB_DEPENDS:STATIC=general;malloc;
+
 
 ########################
 # INTERNAL cache entries

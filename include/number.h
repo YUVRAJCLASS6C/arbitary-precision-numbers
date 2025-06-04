@@ -19,10 +19,10 @@ typedef enum{
     neg,
     pos
 } bit;
-inline int bit_to_int(bit);
-inline char bit_to_char(bit);
-inline bit int_to_bit(int);
-inline bit char_to_bit(char);
+int bit_to_int(bit);
+char bit_to_char(bit);
+bit int_to_bit(int);
+bit char_to_bit(char);
 
 
 typedef struct number {
@@ -40,8 +40,8 @@ typedef struct number_EXTRABIG {
     FILE* fp;
 } number_EXTRABIG;
 
-inline void set(number* num,const char* buffer);
-inline void print(number* num);
+void set(number* num,const char* buffer);
+void print(number* num);
 
 
 #ifndef SIZE__DIS

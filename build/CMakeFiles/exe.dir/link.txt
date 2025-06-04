@@ -1,1 +1,1 @@
-/usr/bin/cc CMakeFiles/exe.dir/src/main.c.o -o exe  -Wl,-rpath,/mnt/c/Users/Asus/Favorites/Large_numbers/C_10/build liblib_impl.so 
+/usr/bin/cc CMakeFiles/exe.dir/src/main.c.o -o exe  -Wl,-rpath,/mnt/c/Users/Asus/Favorites/Large_numbers/C_10/build liblib_impl.so libmalloc.so 

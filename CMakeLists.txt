@@ -16,6 +16,7 @@ target_include_directories(malloc PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 file(GLOB_RECURSE src_cpp  "src/*.cpp")
 add_library(lib_impl SHARED ${impl_c} ${impl_cpp})
+target_link_libraries(lib_impl PUBLIC malloc)
 target_include_directories(lib_impl PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 add_executable(exe ${src_c} ${src_cpp})
