@@ -1,1 +1,0 @@
-/usr/bin/cc -fPIC -shared -Wl,-soname,liblib_impl.so -o liblib_impl.so CMakeFiles/lib_impl.dir/impl/Basics.c.o  -lm 

@@ -1,4 +1,0 @@
-/mnt/c/Users/Asus/Favorites/Large_numbers/C_10/build/CMakeFiles/lib_impl.dir
-/mnt/c/Users/Asus/Favorites/Large_numbers/C_10/build/CMakeFiles/exe.dir
-/mnt/c/Users/Asus/Favorites/Large_numbers/C_10/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/Asus/Favorites/Large_numbers/C_10/build/CMakeFiles/rebuild_cache.dir
