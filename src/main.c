@@ -7,6 +7,7 @@ int main(){
     char buffer[] =  "874380";
     set_number(&m,buffer);
     print_number(&m);
+    FREE_number(&m);
     return 0;
 }
 

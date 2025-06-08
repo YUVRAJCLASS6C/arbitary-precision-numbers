@@ -14,13 +14,16 @@ void *simple_alloc(size_t num){
 }
 
 void simple_free(void* ptr,size_t size){
+  
   #if defined(_WIN32) || defined(_WIN64)
     free(ptr);
   #else
+  if (size == 0){
+    return;
+  }
   int err = munmap(ptr, size);
   if (err == -1){
-    int hello = __LINE__;
-    fprintf(stderr,"Failed exction at %d\n",hello);
+    perror("munmap");
   }
   #endif
 }

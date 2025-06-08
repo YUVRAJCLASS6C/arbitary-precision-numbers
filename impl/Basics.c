@@ -3,21 +3,30 @@
 //
 #define SIZE__DIS
 #include "number.h"
+#include "FD.h"
 #define u64 size_t
 void print_number(number* num) {
     if (num->flag == neg) printf("-");
-    for (size_t i = 0; i < num->length; i++) {
+    for (int64_t i = (num->length - 1); i >= 0; i--) {
         printf("%" PRIu64, (num->list)[i]);
     }
     printf("  :- This has length %"PRIu64 "\n",num->length);
 }
 void ALLOCATE_number(number* num,u64 size){
     size = ceil(log2((pow(10,size+1) - 1)));
+    #ifdef DEBUG
+    printf("\nDEBUGGING INFO SIZE = %llu\n",size);
+    #endif
     if (num->size >= size){
         return ;
     }
-    num->list = realloc((num->list),size);
+    simple_realloc(&(num->list),num->size,size);
     num->size = size;
+}
+void FREE_number(number* num){
+    simple_free(num->list,num->size);
+    num->length = num->size = 0;
+    num->flag = pos;
 }
 void trim(char *str) {
     // Trim leading space
