@@ -7,7 +7,7 @@
 void print_number(number* num) {
     if (num->flag == neg) printf("-");
     for (size_t i = 0; i < num->length; i++) {
-        printf("%lu ", (num->list)[i]);
+        printf("%" PRIu64, (num->list)[i]);
     }
 }
 void ALLOCATE_number(number* num,u64 size){

@@ -12,7 +12,7 @@
 #include <limits.h>
 #include <math.h>
 #include <stdint.h>
-
+#include <inttypes.h>
 #define SIZE sizeof(uint64_t)
 #define part uint64_t
 typedef enum{
