@@ -92,7 +92,6 @@ lib_impl_EXTERNAL_OBJECTS =
 
 liblib_impl.so: CMakeFiles/lib_impl.dir/impl/Basics.c.o
 liblib_impl.so: CMakeFiles/lib_impl.dir/build.make
-liblib_impl.so: libmalloc.so
 liblib_impl.so: CMakeFiles/lib_impl.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/c/Users/Asus/Favorites/Large_numbers/C_10/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C shared library liblib_impl.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lib_impl.dir/link.txt --verbose=$(VERBOSE)

@@ -225,7 +225,7 @@ GOOD_IS_TOP_LEVEL:STATIC=ON
 GOOD_SOURCE_DIR:STATIC=/mnt/c/Users/Asus/Favorites/Large_numbers/C_10
 
 //Dependencies for the target
-lib_impl_LIB_DEPENDS:STATIC=general;malloc;
+lib_impl_LIB_DEPENDS:STATIC=general;m;
 
 
 ########################

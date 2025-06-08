@@ -44,7 +44,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/malloc.dir/DependInfo.cmake"
   "CMakeFiles/lib_impl.dir/DependInfo.cmake"
   "CMakeFiles/exe.dir/DependInfo.cmake"
   )

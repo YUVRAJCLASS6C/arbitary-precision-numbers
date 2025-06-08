@@ -4,7 +4,9 @@
 #include "number.h"
 int main(){
     number m = {.list = NULL, .size = 0, .length = 0, .flag = pos};
-    print(&m);
+    char buffer[] = "575";
+    set_number(&m,buffer);
+    print_number(&m);
     return 0;
 }
 

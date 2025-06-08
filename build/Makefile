@@ -117,19 +117,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named malloc
-
-# Build rule for target.
-malloc: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 malloc
-.PHONY : malloc
-
-# fast build rule for target.
-malloc/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/malloc.dir/build.make CMakeFiles/malloc.dir/build
-.PHONY : malloc/fast
-
-#=============================================================================
 # Target rules for targets named lib_impl
 
 # Build rule for target.
@@ -154,30 +141,6 @@ exe: cmake_check_build_system
 exe/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/exe.dir/build.make CMakeFiles/exe.dir/build
 .PHONY : exe/fast
-
-alloc/alloc.o: alloc/alloc.c.o
-.PHONY : alloc/alloc.o
-
-# target to build an object file
-alloc/alloc.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/malloc.dir/build.make CMakeFiles/malloc.dir/alloc/alloc.c.o
-.PHONY : alloc/alloc.c.o
-
-alloc/alloc.i: alloc/alloc.c.i
-.PHONY : alloc/alloc.i
-
-# target to preprocess a source file
-alloc/alloc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/malloc.dir/build.make CMakeFiles/malloc.dir/alloc/alloc.c.i
-.PHONY : alloc/alloc.c.i
-
-alloc/alloc.s: alloc/alloc.c.s
-.PHONY : alloc/alloc.s
-
-# target to generate assembly for a file
-alloc/alloc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/malloc.dir/build.make CMakeFiles/malloc.dir/alloc/alloc.c.s
-.PHONY : alloc/alloc.c.s
 
 impl/Basics.o: impl/Basics.c.o
 .PHONY : impl/Basics.o
@@ -237,10 +200,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... exe"
 	@echo "... lib_impl"
-	@echo "... malloc"
-	@echo "... alloc/alloc.o"
-	@echo "... alloc/alloc.i"
-	@echo "... alloc/alloc.s"
 	@echo "... impl/Basics.o"
 	@echo "... impl/Basics.i"
 	@echo "... impl/Basics.s"

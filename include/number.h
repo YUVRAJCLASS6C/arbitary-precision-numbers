@@ -40,8 +40,8 @@ typedef struct number_EXTRABIG {
     FILE* fp;
 } number_EXTRABIG;
 
-void set(number* num,const char* buffer);
-void print(number* num);
+void set_number(number* num,const char* buffer);
+void print_number(number* num);
 
 
 #ifndef SIZE__DIS
