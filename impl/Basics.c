@@ -9,6 +9,7 @@ void print_number(number* num) {
     for (size_t i = 0; i < num->length; i++) {
         printf("%" PRIu64, (num->list)[i]);
     }
+    printf("  :- This has length %"PRIu64 "\n",num->length);
 }
 void ALLOCATE_number(number* num,u64 size){
     size = ceil(log2((pow(10,size+1) - 1)));
