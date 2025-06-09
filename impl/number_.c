@@ -1,4 +1,10 @@
 #include "number.h"
+#include "FD.h"
+
+
+
+
+
 static digit char_to_d(char c){
   return (digit)(c - '0');
 }
@@ -6,16 +12,24 @@ static char digit_to_c(digit d){
   return (((int)d)+'0');
 }
 Number * Number_SET(char* str){
-  Number num = NULL_number_;
-  Number_r(&num,strlen(str)+1);
+  Number * num = simple_alloc(sizeof(Number));
+  num->list = NULL;
+  num->length = 0;
+  num->size = 0;
+  num->flag = pos;
+  Number_r(num,strlen(str)+1);
   for (uint64_t i = 0; i < strlen(str);i++){
-    num.list[i] = char_to_d(str[i]);
-    num.size++;
+    num->list[i] = char_to_d(str[i]);
+    num->size++;
   }
-  return &num;
+  return num;
 }
 Number Number_SET2(char* str){
-  Number num = NULL_number_;
+  Number num;
+  num.list = NULL;
+  num.length = 0;
+  num.size = 0;
+  num.flag = pos;
   Number_r(&num,strlen(str)+1);
   for (uint64_t i = 0; i < strlen(str);i++){
     num.list[i] = char_to_d(str[i]);
