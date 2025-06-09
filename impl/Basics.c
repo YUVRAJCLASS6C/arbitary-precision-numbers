@@ -5,6 +5,51 @@
 #include "number.h"
 #include "FD.h"
 #define u64 size_t
+/*
+static digit char_to_digit(char n);
+static char digit_to_char(digit n);
+
+
+
+void reverse(char* str) {
+    int left = 0;
+    int right = strlen(str) - 1;
+    while (left < right) {
+        char temp = str[left];
+        str[left++] = str[right];
+        str[right--] = temp;
+    }
+}
+
+number_* number_SET(char* str){
+  number_* num = simple_alloc(sizeof(number_));
+  reverse(str);
+  reserve_number_(num,strlen(str));
+  for (int64_t i = 0; i < strlen(str); i++){
+    *(num->list+(i)) = char_to_digit(*(str+(i)));
+  }
+  reverse(str);
+}
+void reserve_number_(number_* num,uint64_t n){
+  if (num->size >= n){
+    return;
+  }
+  simple_realloc(&(num->list),num->size,n);
+  num->size = n;
+}
+void number_PRINT(number_* num){
+  for (uint64_t i = 0; i < num->length; i++){
+    printf("%c",digit_to_char(*(num->list+i)));
+  }
+  printf("\n");
+}
+
+static digit char_to_digit(char n){
+  return (digit)((int)n );
+}
+static char digit_to_char(digit n){
+  return  ((int)n)+'0';;
+}*/
 void print_number(number* num) {
     if (num->flag == neg) printf("-");
     for (int64_t i = (num->length - 1); i >= 0; i--) {
@@ -20,7 +65,7 @@ void ALLOCATE_number(number* num,u64 size){
     if (num->size >= size){
         return ;
     }
-    simple_realloc(&(num->list),num->size,size);
+    simple_realloc(&(num->list),num->size*sizeof(uint64_t),size*sizeof(uint64_t));
     num->size = size;
 }
 void FREE_number(number* num){
@@ -41,6 +86,17 @@ void trim(char *str) {
     // Move trimmed string to the original pointer
     memmove(str, start, strlen(start) + 1);
 }
+/*
+inline void str_2(char* mss){
+    
+}
+static char* str_to_b(const char* mss){
+    uint64_t size = strlen(mss);
+    uint64_t size2 = ceil((pow(10,size+1) -1 ));
+    char* buffer = simple_alloc(size2*sizeof(char));
+    return buffer;
+}
+*/
 void set_number(number* num,const char* buffer) {
     trim(buffer);
     ALLOCATE_number(num,strlen(buffer));
@@ -48,10 +104,8 @@ void set_number(number* num,const char* buffer) {
         num->list[0] = strtoull(buffer,
                              NULL,0);
         num->length = 1;
-
     }else{
-        printf("Not implemented\n");
-            exit(1);
+        
     }
 }
 int bit_to_int(bit num){

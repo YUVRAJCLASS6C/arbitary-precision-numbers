@@ -3,11 +3,11 @@
 //
 #include "number.h"
 int main(){
-    number m = {.list = NULL, .size = 0, .length = 0, .flag = pos};
+    Number m = {.list = NULL, .size = 0, .length = 0, .flag = pos};
     char buffer[] =  "874380";
-    set_number(&m,buffer);
-    print_number(&m);
-    FREE_number(&m);
+    m = *(Number_SET(buffer));
+    Number_PRINT(&m);    
+
     return 0;
 }
 

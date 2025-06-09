@@ -62,7 +62,7 @@ void set_number(number* num,const char* buffer);
 void print_number(number* num);
 
 Number * Number_SET(char* str);
-Number Number_SET2(char* str);
+Number Number_SET(char* str);
 void Number_r(number_* num,uint64_t n);
 void Number_PRINT(number_* num);
 #ifndef SIZE__DIS
