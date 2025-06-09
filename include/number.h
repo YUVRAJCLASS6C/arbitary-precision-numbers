@@ -24,7 +24,7 @@ char bit_to_char(bit);
 bit int_to_bit(int);
 bit char_to_bit(char);
 
-typedef enum {
+typedef enum __attribute__((packed)){
     zero = 0,
     one = 1,
     two = 2,
@@ -53,11 +53,23 @@ typedef struct numberpp {
     number num;
     void (*print)(number);
 } numberpp;
+static void trim(char *str) {
+    // Trim leading space
+    char *start = str;
+    while (isspace((unsigned char)*start)) start++;
 
+    // Trim trailing space
+    char *end = start + strlen(start) - 1;
+    while (end > start && isspace((unsigned char)*end)) end--;
+    *(end + 1) = '\0';
+
+    // Move trimmed string to the original pointer
+    memmove(str, start, strlen(start) + 1);
+}
 typedef struct number_EXTRABIG {
     FILE* fp;
 } number_EXTRABIG;
-#define NULL_number_ ((Number){.list = NULL, .length = 0, .size = 0,.flag = pos})
+#define NULL_number_ {0}
 void set_number(number* num,const char* buffer);
 void print_number(number* num);
 
@@ -65,6 +77,10 @@ Number * Number_SET(char* str);
 Number Number_SET2(char* str);
 void Number_r(number_* num,uint64_t n);
 void Number_PRINT(number_* num);
+Number Number_ADD2(Number * a, Number * b);
+Number * Number_ADD(Number * a, Number * b);
+Number Number_Mul2(Number * a, Number * b);
+Number * Number_Mul(Number * a, Number * b);
 #ifndef SIZE__DIS
 #undef SIZE
 

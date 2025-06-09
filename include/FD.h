@@ -8,10 +8,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <stdint.h>
+#include <inttypes.h>
 #if defined(__linux__)
   #include <sys/mman.h>
   #define MMAP_DEF__(num) (mmap(NULL,(num),PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS,-1,0))
+#define MAP_ADDR(num,mul) (mmap((num),(mul)*getpagesize(),PROT_READ | PROT_WRITE,MAP_PRIVATE | MAP_ANONYMOUS | MAP_FIXED,-1,0))
+void map_adder(void * adder,uint8_t mul);
 #else
+  #include <windows.h>
   #define MMAP_DEF__(num) malloc(num)
 #endif
 void *simple_alloc(size_t num);
