@@ -73,19 +73,7 @@ void FREE_number(number* num){
     num->length = num->size = 0;
     num->flag = pos;
 }
-void trim(char *str) {
-    // Trim leading space
-    char *start = str;
-    while (isspace((unsigned char)*start)) start++;
 
-    // Trim trailing space
-    char *end = start + strlen(start) - 1;
-    while (end > start && isspace((unsigned char)*end)) end--;
-    *(end + 1) = '\0';
-
-    // Move trimmed string to the original pointer
-    memmove(str, start, strlen(start) + 1);
-}
 /*
 inline void str_2(char* mss){
     
