@@ -79,6 +79,8 @@ void Number_r(number_* num,uint64_t n);
 void Number_PRINT(number_* num);
 Number Number_ADD2(Number * a, Number * b);
 Number * Number_ADD(Number * a, Number * b);
+Number Number_Mul2(Number * a, Number * b);
+Number * Number_Mul(Number * a, Number * b);
 #ifndef SIZE__DIS
 #undef SIZE
 

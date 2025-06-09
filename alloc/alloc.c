@@ -1,6 +1,5 @@
 #include "FD.h"
 #include <string.h>
-
 void *simple_alloc(size_t num){
   void* ptr = MMAP_DEF__(num);
   #if defined(__linux__)
@@ -12,7 +11,13 @@ void *simple_alloc(size_t num){
   #endif
   return ptr;
 }
-
+void map_adder(void * adder,uint8_t mul){
+  void* ptr = MAP_ADDR(adder,mul);
+  if (ptr == MAP_FAILED){
+    perror("mmap");
+    exit(1);
+  }
+}
 void simple_free(void* ptr,size_t size){
   
   #if defined(_WIN32) || defined(_WIN64)

@@ -58,6 +58,55 @@ void Number_PRINT(number_* num){
   }
   printf("\n");
 }
+static Number Mul_by_d(const Number * a,const uint8_t c){
+  uint8_t iter = c;
+  Number num = {0};
+  Number_r(&num,a->length+1);
+  for (int8_t i = 0; i < iter; i++){
+    num = Number_ADD2(&num,a);
+  }
+  return num;
+}
+static void Mul_10(Number * a){
+  digit * ptr = (digit*)simple_alloc((a->size +1)*sizeof(digit));
+  memcpy(ptr+1,a->list,a->size);
+  simple_free(a->list,a->length);
+  a->list = ptr;
+  a->size++;
+}
+static void Mul_10_n(Number * a, uint8_t n){
+  for (uint8_t i = 0; i < n;i++){
+    Mul_10(a);
+  }
+}
+Number Number_Mul2(Number * a, Number * b){
+  Number r = NULL_number_;
+  /*
+  if (a->size < b->size){
+    return Number_Mul2(b,a);
+  }
+  */
+  for (uint64_t i = 0; i < b->size; i++){
+    Number val = Mul_by_d(a,((int)(b->list[i])));
+    Mul_10_n(&val,i);
+    r = Number_ADD2(&r,&val);
+  }
+  return r;
+}
+Number * Number_Mul(Number * a, Number * b){
+  Number * r = (Number *)simple_alloc(sizeof(Number));
+  /*
+  if (a->size < b->size){
+    return Number_Mul2(b,a);
+  }
+  */
+  for (uint64_t i = 0; i < b->size; i++){
+    Number val = Mul_by_d(a,((int)(b->list[i])));
+    Mul_10_n(&val,i);
+    *r = Number_ADD2(r,&val);
+  }
+  return r;
+}
 Number Number_ADD2(Number * a, Number * b){
   Number r = NULL_number_;
   if (a->size >= b->size){
@@ -76,5 +125,22 @@ Number Number_ADD2(Number * a, Number * b){
   }
   return Number_ADD2(b,a);
 }
-Number * Number_ADD(Number * a, Number * b);
+Number * Number_ADD(Number * a, Number * b){
+  Number* r = simple_alloc(sizeof(Number));
+  if (a->size >= b->size){
+    Number_r(r,a->length +1);
+    Number_r(b,a->length);
+    digit sum = zero;
+    digit carry = zero; 
+    uint64_t i;
+    for (i = 0; i < a->size; i++){
+      add_d(a->list[i],b->list[i],carry,&sum,&carry);
+      r->list[i] = sum;
+    }
+    r->size = carry == 0 ? a->size: a->size +1;
+    r->list[a->size] = carry;
+    return r;
+  }
+  return Number_ADD(b,a);
+}
 
